@@ -1,4 +1,3 @@
-rootProject.name = 'sample-multi-module'
-include 'sample-api'
-include 'sample-admin'
-include 'sample-common'
+rootProject.name = 'reactive-poc'
+include 'spring-reactive-non-blocking-io'
+include 'spring-blocking-io'

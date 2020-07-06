@@ -1,0 +1,8 @@
+FROM gradle:jdk8 as builder
+
+COPY --chown=gradle:gradle . /reactive-poc
+WORKDIR /reactive-poc/spring-blocking-io
+
+RUN gradle build wrapper --refresh-dependencies --warning-mode none
+
+CMD [ "sh", "-c", "/reactive-poc/spring-blocking-io/gradlew cleanTest test --warning-mode=none" ]

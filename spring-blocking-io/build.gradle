@@ -1,0 +1,16 @@
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('org.apache.httpcomponents:httpclient:4.5.12')
+    compile('org.springframework.data:spring-data-couchbase')//, version: '4.0.1.RELEASE'
+    compile('org.hibernate.validator:hibernate-validator:6.1.5.Final')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+//bootJar {
+//    enabled = true
+//}
+//
+//jar {
+//    enabled = false
+//}

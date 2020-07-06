@@ -1,18 +1,26 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.3.RELEASE'
+        springBootVersion = '2.2.4.RELEASE'
     }
     repositories {
         mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+        classpath 'com.adarshr:gradle-test-logger-plugin:2.1.0'
+
     }
+
 }
 
+
+
 allprojects {
-    group 'com.sungjun'
+    group 'com.olympus'
     version '1.0-SNAPSHOT'
 }
 
@@ -20,26 +28,78 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.adarshr.test-logger'
 
     sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
     repositories {
         mavenCentral()
     }
 
     dependencies {
+
+        compile group: 'joda-time', name: 'joda-time', version: '2.10.6'
+        compile "org.codehaus.groovy:groovy-all:2.4.17"
+        compileOnly 'org.projectlombok:lombok:1.18.12'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+        testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+
         testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompileOnly 'org.projectlombok:lombok:1.18.12'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+
     }
+
+//    tasks.test {
+//        maxParallelForks = Runtime.getRuntime().availableProcessors()
+//    }
+
+    tasks.test {
+        maxParallelForks = Runtime.getRuntime().availableProcessors()
+    }
+
+    test {
+        useJUnitPlatform()
+        useTestNG(){
+            useDefaultListeners = true
+        }
+
+//        failFast = true
+
+        maxParallelForks = Runtime.getRuntime().availableProcessors()
+
+        testLogging {
+            showStandardStreams = true
+        }
+    }
+
+//    tasks.withType(Test) {
+//        scanForTestClasses = false
+//        include "**/*Test.class" // whatever Ant pattern matches your test class files
+//    }
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '6.5.1' //version required
+    }
+
+
+
+
+    //-Dorg.gradle.warning.mode=none
 }
 
-project(':sample-api') {
-    dependencies {
-        compile project(':sample-common')
-    }
-}
+//project(':spring-blocking-io') {
+//    dependencies {
+//
+//    }
+//}
+//
+//project(':spring-reactive-non-blocking-io') {
+//    dependencies {
+//
+//    }
+//}
 
-project(':sample-admin') {
-    dependencies {
-        compile project(':sample-common')
-    }
-}
+//-Dorg.gradle.warning.mode=(all,fail,none,summary)

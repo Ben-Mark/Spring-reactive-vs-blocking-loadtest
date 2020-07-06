@@ -1,0 +1,8 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  couchbase:
+    bootstrap-hosts: localhost
+    bucket:
+      name: test
+      password: 123456
