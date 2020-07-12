@@ -1,0 +1,11 @@
+FROM gradle:jdk11 as builder
+
+COPY --chown=gradle:gradle . /reactive-poc
+
+WORKDIR /reactive-poc/spring-blocking-io
+
+RUN gradle build --refresh-dependencies --warning-mode none -x test
+
+EXPOSE 8081
+
+ENTRYPOINT ["java","-jar","/reactive-poc/spring-blocking-io/build/libs/spring-blocking-io-1.0-SNAPSHOT.jar"]

@@ -1,8 +1,11 @@
+server:
+  port: 8081
+
 spring:
   main:
     allow-bean-definition-overriding: true
   couchbase:
-    bootstrap-hosts: localhost
+    bootstrap-hosts: couchdb
     bucket:
       name: test
       password: 123456

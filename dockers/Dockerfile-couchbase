@@ -1,0 +1,7 @@
+FROM couchbase
+
+COPY dockers/couchdb-init.sh /opt/couchbase
+
+RUN chmod 777 /opt/couchbase/couchdb-init.sh
+
+CMD ["/opt/couchbase/couchdb-init.sh"]

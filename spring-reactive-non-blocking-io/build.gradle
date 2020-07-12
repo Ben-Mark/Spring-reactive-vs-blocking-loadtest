@@ -1,17 +1,32 @@
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-starter-webflux'){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        exclude group: 'org.springframework', module: 'spring-webmvc'
+    }
+
     compile('org.springframework.boot:spring-boot-starter-test')
     compile('org.apache.logging.log4j:log4j-core:2.13.3')
-    annotationProcessor 'org.apache.logging.log4j:log4j-core:2.13.3'
-//    compileOnly 'org.projectlombok:lombok:1.18.12'
-//    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compile('org.springframework.boot:spring-boot-starter-data-couchbase-reactive')
+    compile group: 'com.github.f4b6a3', name: 'uuid-creator', version: '2.6.0'
+    compile group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
 
+    annotationProcessor 'org.apache.logging.log4j:log4j-core:2.13.3'
     testCompile('io.projectreactor:reactor-test')
 }
-//bootJar {
-//    enabled = true
-//}
-//
-//jar {
-//    enabled = false
-//}
+
+bootRun {
+    //setting up ssl java jar parameters on boot run
+    jvmArgs = [
+            "-Dreactor.netty.http.server.accessLogEnabled=false",
+            "-Dreactor.netty.logChannelInfo=false",
+            "-Dio.netty.leakDetection.level=enabled"
+    ]
+}
+
+bootJar {
+    enabled = true
+}
+
+jar {
+    enabled = false
+}

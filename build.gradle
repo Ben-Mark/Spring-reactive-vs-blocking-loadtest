@@ -1,12 +1,14 @@
 buildscript {
     ext {
-        springBootVersion = '2.2.4.RELEASE'
+        springBootVersion = '2.2.8.RELEASE'
     }
     repositories {
         mavenCentral()
+        jcenter()
         maven {
             url 'https://plugins.gradle.org/m2/'
         }
+
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -17,7 +19,10 @@ buildscript {
 
 }
 
-
+wrapper{
+    gradleVersion = '6.5.1'
+    distributionType = Wrapper.DistributionType.BIN
+}
 
 allprojects {
     group 'com.olympus'
@@ -30,8 +35,9 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'com.adarshr.test-logger'
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    //Jar compiled version..
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 
     repositories {
         mavenCentral()
@@ -49,16 +55,14 @@ subprojects {
         testCompileOnly 'org.projectlombok:lombok:1.18.12'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-
     }
 
-//    tasks.test {
-//        maxParallelForks = Runtime.getRuntime().availableProcessors()
-//    }
-
-    tasks.test {
-        maxParallelForks = Runtime.getRuntime().availableProcessors()
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        }
     }
+
 
     test {
         useJUnitPlatform()
@@ -66,40 +70,22 @@ subprojects {
             useDefaultListeners = true
         }
 
-//        failFast = true
+        failFast = true
 
         maxParallelForks = Runtime.getRuntime().availableProcessors()
+
 
         testLogging {
             showStandardStreams = true
         }
     }
 
-//    tasks.withType(Test) {
-//        scanForTestClasses = false
-//        include "**/*Test.class" // whatever Ant pattern matches your test class files
-//    }
-
-    task wrapper(type: Wrapper) {
-        gradleVersion = '6.5.1' //version required
+    compileJava {
+        //raise heap
+        options.fork = 'true'
+        options.forkOptions.with {
+            memoryMaximumSize = '8192m'
+        }
     }
 
-
-
-
-    //-Dorg.gradle.warning.mode=none
 }
-
-//project(':spring-blocking-io') {
-//    dependencies {
-//
-//    }
-//}
-//
-//project(':spring-reactive-non-blocking-io') {
-//    dependencies {
-//
-//    }
-//}
-
-//-Dorg.gradle.warning.mode=(all,fail,none,summary)
