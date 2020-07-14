@@ -8,16 +8,18 @@ buildscript {
         maven {
             url 'https://plugins.gradle.org/m2/'
         }
-
     }
+
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
         classpath 'com.adarshr:gradle-test-logger-plugin:2.1.0'
-
     }
 
+
+
 }
+
 
 wrapper{
     gradleVersion = '6.5.1'
@@ -30,10 +32,14 @@ allprojects {
 }
 
 subprojects {
+
+
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'com.adarshr.test-logger'
+    apply plugin: 'idea'
+
 
     //Jar compiled version..
     sourceCompatibility = JavaVersion.VERSION_11
@@ -42,6 +48,7 @@ subprojects {
     repositories {
         mavenCentral()
     }
+
 
     dependencies {
 
@@ -62,7 +69,6 @@ subprojects {
             mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
         }
     }
-
 
     test {
         useJUnitPlatform()
@@ -87,5 +93,7 @@ subprojects {
             memoryMaximumSize = '8192m'
         }
     }
+
+
 
 }

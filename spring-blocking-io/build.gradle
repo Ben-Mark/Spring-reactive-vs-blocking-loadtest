@@ -4,7 +4,7 @@ dependencies {
     compile('org.apache.httpcomponents:httpclient:4.5.12')
     compile('org.springframework.data:spring-data-couchbase')//, version: '4.0.1.RELEASE'
     compile('org.hibernate.validator:hibernate-validator:6.1.5.Final')
-    compile group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+//    compile group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
 }
 
 //bootJar {

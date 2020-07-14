@@ -1,4 +1,4 @@
-version: "3.1"
+version: "3.8"
 services:
 
   couchdb:
@@ -16,7 +16,15 @@ services:
       - 8080:8080
     depends_on:
       - couchdb
-    restart: on-failure:5
+    restart: on-failure:1
+    deploy:
+      resources:
+        limits:
+          cpus: '2.00'
+          memory: 4G
+        reservations:
+          cpus: '0.25'
+          memory: 500m
 
   blocking-poc:
     image: blocking-poc:latest
@@ -24,4 +32,12 @@ services:
       - 8081:8081
     depends_on:
       - couchdb
-    restart: on-failure:5
+    restart: on-failure:1
+    deploy:
+      resources:
+        limits:
+          cpus: '2.00'
+          memory: 4G
+        reservations:
+          cpus: '0.25'
+          memory: 500m
