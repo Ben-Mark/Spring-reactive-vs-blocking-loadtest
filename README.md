@@ -37,7 +37,7 @@ Note: everything in the load-test scenarios are easly customizable, read the cus
 * h2load
 * Basic knowledge in what is Blocking I/O & Non-Blocking I/O
 * Basic knowledge in reactive programing in Java
-* Basic knowledge in scala
+* Basic knowledge in scala (to customize gatling load-tests)
 
 
 
