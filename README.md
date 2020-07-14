@@ -16,7 +16,7 @@ I just saved you <u>months</u> of research inside this repo!
 <br>
 This repo will demonstrate a Reactive springboot2 java REST server VS Blocking (default) Springboot2 java REST server following these metrics:
 * 10,000 requests, how long it takes to process in both servers
-* 2000 request peak on each server, what will be the average response time, which implementation will overcome that peak
+* 2000 request peak in a second on each server, what will be the average response time, which implementation will overcome that peak
 
 
 Note: everything in the load-test scenarios are easly customizable, read the custumization seciton below.
