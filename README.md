@@ -51,8 +51,8 @@ meaning: how much time (in seconds) it takes for each server implementation to h
 * ```source run/unix/run-reactive-loadtest.sh```
 * ```source run/unix/run-blocking-loadtest.sh```
 
-<br>
-Stress tests (using gatling)
+
+##### Stress tests (using gatling)
 
 * ```~/gatling-loadtest/bin/gatling.sh```
     * you will be prompted with 2 options,
