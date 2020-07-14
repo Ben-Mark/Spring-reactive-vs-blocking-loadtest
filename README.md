@@ -60,7 +60,7 @@ meaning: how much time (in seconds) it takes for each server implementation to h
     * you will be prompted with 2 options,
         * reactive-stresstest
         * blocking-stresstest
-    * then the last prompt of the stress test attempt's name you want in the gatling reports
+    * then the last prompt of the stress test attempt's name you want in the gatling's graph reports
     * the test run results will be shown in:
         * the CLI
         * 5 different html graphs in ```gatling-loadtest/results/*```
