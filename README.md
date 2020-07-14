@@ -21,22 +21,37 @@ This repo will demonstrate a Reactive SpringBoot2 java REST server VS Blocking (
 * both servers will send a CRUD requests to an external couchbase container to see the Non-Blocking I/O shine.
 * execution is encapsulated within a run script (no need to learn or master any new underlying technology)
 
------
- 
- The blocking spring rest implementation can't even handle a 2k request peak, while the reactive server with the same resources & same database shined , see image #1
 
------
+ 
+<code><i>The blocking spring rest implementation can't even handle a 2k request peak, while the reactive server with the same resources & same database shined , see image #1  </i> </code>
+
+
 
 Note: everything in the load-test scenarios are easly customizable, read the custumization seciton below.
 
+-----
 ## The strength of writing non-blocking code in java
  ![Alt text](results/reactive-2000-request-stress-peak-report.png?raw=true "Title") 
 
-| col 1      | col 2      |
+------
+#### 10k requests with a concurrency of 100 (thanks to h2load's node engine)
+| Reactive   | Blocking  |
 |------------|-------------|
-|![Alt text](results/h2load-blocking-10k-requests-with-100threads.png?raw=true "Title") | 
-![Alt text](results/h2load-reactive-10k-requests-with-100threads.png?raw=true "Title") |
+| ![Alt text](results/h2load-reactive-10k-requests-with-100threads.png?raw=true "Title") | ![Alt text](results/h2load-blocking-10k-requests-with-100threads.png?raw=true "Title")
+
+------
+#### 2000 requests with a concurrenct of 2000 (thanks to gatling's scala's engine)
+
+| Reactive   | Blocking  |
+|------------|-------------|
+| ![Alt text](results/reactive-2000-stress-cli.png?raw=true "Title")  | ![Alt text](results/blocking-2000-stress-cli.png?raw=true "Title")  |  
  
+------
+
+#### Spring blocking I/O server failed due to its thread per request/connection threshold 
+ ![Alt text](results/spring-blocking-error.png?raw=true "Title") 
+
+------
 
 
 ## Prerequisites
