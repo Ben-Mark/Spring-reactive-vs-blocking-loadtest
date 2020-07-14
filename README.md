@@ -41,10 +41,8 @@ Note: everything in the load-test scenarios are easly customizable, read the cus
 
 
 ## install
-* OSX / Linux:   
-```source install.sh```
-* Windows: 
-```throw your computer out the window and buy a mac```
+* OSX / Linux:   ```source install.sh```
+* Windows: ```throw your computer out the window and buy a mac```
 
 ## run
 
