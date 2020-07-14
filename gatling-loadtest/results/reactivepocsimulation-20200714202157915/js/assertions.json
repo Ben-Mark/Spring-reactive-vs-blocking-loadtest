@@ -1,0 +1,10 @@
+{
+  "simulation": "poc.ReactivePocSimulation",
+  "simulationId": "reactivepocsimulation",
+  "start": 1594758117915,
+  "description": "reactive 2000 req peak stress",
+  "scenarios": ["Reactive-poc loadtest"],
+  "assertions": [
+
+  ]
+}

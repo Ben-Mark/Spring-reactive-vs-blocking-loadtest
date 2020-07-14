@@ -23,9 +23,8 @@ import scala.concurrent.duration._
 class BlockingPocSimulation extends Simulation {
 
   val httpProtocol = http
-    .baseUrl("http://localhost:8081") // Here is the root for all relative URLs
+    .baseUrl("http://localhost:8090") // Here is the root for all relative URLs
     .acceptHeader("plain/text") // Here are the common headers
-//    .doNotTrackHeader("1")
     .acceptLanguageHeader("en-US,en;")
     .acceptEncodingHeader("utf8")
 

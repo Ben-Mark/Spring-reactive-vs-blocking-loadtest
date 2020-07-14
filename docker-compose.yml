@@ -9,6 +9,14 @@ services:
       - 8093:8093
       - 8094:8094
       - 11210:11210
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '0.5'
+#          memory: 4G
+#        reservations:
+#          cpus: '0.25'
+#          memory: 500m
 
   reactive-poc:
     image: reactive-poc:latest
@@ -16,7 +24,7 @@ services:
       - 8080:8080
     depends_on:
       - couchdb
-    restart: on-failure:1
+    restart: on-failure:5
     deploy:
       resources:
         limits:
@@ -29,10 +37,10 @@ services:
   blocking-poc:
     image: blocking-poc:latest
     ports:
-      - 8081:8081
+      - 8090:8090
     depends_on:
       - couchdb
-    restart: on-failure:1
+    restart: on-failure:5
     deploy:
       resources:
         limits:

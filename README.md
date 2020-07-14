@@ -21,12 +21,18 @@ This repo will demonstrate a Reactive SpringBoot2 java REST server VS Blocking (
 * both servers will send a CRUD requests to an external couchbase container to see the Non-Blocking I/O shine.
 * execution is encapsulated within a run script (no need to learn or master any new underlying technology)
 
+-----
+ 
+ The blocking spring rest implementation can't even handle a 2k request peak, while the reactive server with the same resources & same database shined , see image #1
+
+-----
+
 Note: everything in the load-test scenarios are easly customizable, read the custumization seciton below.
 
 ## The strength of writing non-blocking code in java
-* image1
-* image2
-* image3
+| col 1      | col 2      |
+|------------|-------------|
+| <img 
  
 
 
@@ -56,7 +62,7 @@ meaning: how much time (in seconds) it takes for each server implementation to h
 
 ##### Stress tests (using gatling)
 
-* ```~/gatling-loadtest/bin/gatling.sh```
+* ```./gatling-loadtest/bin/gatling.sh```
     * you will be prompted with 2 options,
         * reactive-stresstest
         * blocking-stresstest
