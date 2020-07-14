@@ -17,7 +17,9 @@ I just saved you <u>months</u> of research inside this repo!
 This repo will demonstrate a Reactive springboot2 java REST server VS Blocking (default) Springboot2 java REST server following these metrics:
 * 10,000 requests, how long it takes to process in both servers
 * 2000 request peak in a second on each server, what will be the average response time, which implementation will overcome that peak
-
+* both servers and couchbase are separated into docker containers, executed via docker swarm, memory & cpu of all containers is customizable 
+* both servers will send a CRUD requests to an external couchbase container to see the Non-Blocking I/O shine.
+* execution is encapsulated within a run script (no need to learn or master any new underlying technology)
 
 Note: everything in the load-test scenarios are easly customizable, read the custumization seciton below.
 
