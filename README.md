@@ -30,9 +30,12 @@ This repo will demonstrate a Reactive SpringBoot2 java REST server VS Blocking (
 Note: everything in the load-test scenarios are easly customizable, read the custumization seciton below.
 
 ## The strength of writing non-blocking code in java
+ ![Alt text](results/reactive-2000-request-stress-peak-report.png?raw=true "Title") 
+
 | col 1      | col 2      |
 |------------|-------------|
-| <img 
+|![Alt text](results/h2load-blocking-10k-requests-with-100threads.png?raw=true "Title") | 
+![Alt text](results/h2load-reactive-10k-requests-with-100threads.png?raw=true "Title") |
  
 
 
