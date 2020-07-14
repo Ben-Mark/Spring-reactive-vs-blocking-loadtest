@@ -40,7 +40,7 @@ Note: everything in the load-test scenarios are easly customizable, read the cus
 | ![Alt text](results/h2load-reactive-10k-requests-with-100threads.png?raw=true "Title") | ![Alt text](results/h2load-blocking-10k-requests-with-100threads.png?raw=true "Title")
 
 ------
-#### 2000 requests with a concurrenct of 2000 (thanks to gatling's scala's engine)
+#### 2000 requests with a concurrency of 2000 (thanks to gatling's scala's engine)
 
 | Reactive   | Blocking  |
 |------------|-------------|
