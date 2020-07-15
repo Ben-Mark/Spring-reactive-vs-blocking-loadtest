@@ -4,7 +4,7 @@ Concerned about:
 * Blocking I/O?
 * maximum throughput (requests per second)?
 * want to know what will be your server's threshold?
-* Need to show a poc to your boss?
+* Need to show a poc to your company?
 <br>
 <br>
 
@@ -68,7 +68,7 @@ Note: everything in the load-test scenarios are easly customizable, read the cus
 
 ## install
 * OSX / Linux:   ```source install.sh```
-* Windows: ```throw your computer out the window and buy a mac```
+* Windows: ```TODO```
 
 ## run
 
